@@ -3,7 +3,27 @@
   "description": "Express middleware for React/Redux applications",
   "repository": "dai-shi/express-react-redux",
   "main": "./lib/main.js",
-  "bin": { "express-react-redux-cli": "./lib/cli.js" },
-  "scripts": {},
-  "engines": { "node" : ">=4.4.6" }
+  "bin": {
+    "express-react-redux-cli": "./lib/cli.js"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "lodash": "^4.16.4"
+  },
+  "devDependencies": {
+    "eslint": "^3.8.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1"
+  },
+  "engines": {
+    "node": ">=4.4.6"
+  },
+  "eslintConfig": {
+    "extends": "airbnb"
+  },
+  "license": "MIT"
 }
