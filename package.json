@@ -1,4 +1,9 @@
 {
   "name": "express-react-redux",
-  "description": "Express middleware for React/Redux applications"
+  "description": "Express middleware for React/Redux applications",
+  "repository": "dai-shi/express-react-redux",
+  "main": "./lib/main.js",
+  "bin": { "express-react-redux-cli": "./lib/cli.js" },
+  "scripts": {},
+  "engines": { "node" : ">=4.4.6" }
 }
