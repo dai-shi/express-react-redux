@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "lodash": "^4.16.4",
-    "serve-static": "^1.11.1"
+    "serve-static": "^1.11.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-middleware": "^1.8.4",
+    "webpack-hot-middleware": "^2.13.0"
   },
   "devDependencies": {
     "eslint": "^3.8.1",
@@ -26,7 +29,8 @@
   "eslintConfig": {
     "extends": "airbnb",
     "rules": {
-      "no-param-reassign": 0
+      "no-param-reassign": 0,
+      "global-require": 0
     }
   },
   "license": "MIT"
