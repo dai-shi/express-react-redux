@@ -1,14 +1,22 @@
 /* eslint-env jest */
+/* global jasmine */
 
 const path = require('path');
+const http = require('http');
 const express = require('express');
 const request = require('request');
 
 const main = require('../lib/main.js');
 
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 60 * 1000;
+
 describe('middleware unit test', () => {
-  it('call it without option', () => {
-    main();
+  it.skip('call it without option', (done) => {
+    main({
+      dirSourceClient: path.join(__dirname, 'files/src/client'),
+      dirBuildClient: path.join(__dirname, 'files/build/client'),
+      webpackDevBuildCallback: done,
+    });
   });
 });
 
@@ -16,24 +24,28 @@ describe('middleware run test', () => {
   'use strict';
 
   let server;
-  const port = 13131;
-  beforeAll(() => {
+  let port;
+  beforeAll((done) => {
     const app = express();
     app.use(main({
       dirSourceClient: path.join(__dirname, 'files/src/client'),
       dirBuildClient: path.join(__dirname, 'files/build/client'),
+      webpackDevBuildCallback: done,
     }));
-    server = app.listen(port);
+    server = http.createServer(app);
+    server.listen(() => {
+      port = server.address().port;
+    });
   });
 
   it('get index.html', (done) => {
-    request(`http://localhost:${port}/index.html`, (err, res, body) => {
+    request.get(`http://localhost:${port}/index.html`, (err, res, body) => {
       expect(body).toBeTruthy();
       done();
     });
   });
 
-  afterAll(() => {
-    server.close();
+  afterAll((done) => {
+    server.close(done);
   });
 });
