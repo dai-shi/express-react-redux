@@ -40,7 +40,8 @@ describe('middleware run test', () => {
 
   it('get index.html', (done) => {
     request.get(`http://localhost:${port}/index.html`, (err, res, body) => {
-      expect(body).toBeTruthy();
+      expect(err).toBeFalsy();
+      expect(body).toContain('script');
       done();
     });
   });
