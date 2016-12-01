@@ -1,6 +1,7 @@
 {
   "name": "express-react-redux",
   "description": "Express middleware for React/Redux applications",
+  "version": "0.1.0",
   "repository": "dai-shi/express-react-redux",
   "main": "./lib/main.js",
   "bin": "./lib/cli.js",
@@ -15,6 +16,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-3": "^6.17.0",
     "commander": "^2.9.0",
+    "copyfiles": "^1.0.0",
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.0",
