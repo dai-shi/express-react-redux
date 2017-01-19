@@ -11,7 +11,7 @@ const main = require('../lib/main.js');
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 60 * 1000;
 
 describe('middleware unit test', () => {
-  it.skip('call it without option', (done) => {
+  it('call it with minimal option', (done) => {
     main({
       dirSourceClient: path.join(__dirname, 'files/src/client'),
       dirBuildClient: path.join(__dirname, 'files/build/client'),

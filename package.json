@@ -6,8 +6,9 @@
   "main": "./lib/main.js",
   "bin": "./lib/cli.js",
   "scripts": {
-    "lint": "eslint .",
-    "test": "jest --forceExit"
+    "pretest": "npm run lint --silent",
+    "test": "jest --forceExit",
+    "lint": "eslint ."
   },
   "dependencies": {
     "babel-core": "^6.18.0",
@@ -39,7 +40,8 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
     "express": "^4.14.0",
-    "jest": "^16.0.2",
+    "fs-extra": "^2.0.0",
+    "jest": "^18.1.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "request": "^2.76.0"
