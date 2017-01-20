@@ -8,14 +8,14 @@ Express middleware for React/Redux applications
 
 TO BE WRITTEN
 
-## What this is
+## What is this
 
 This is simple express middleware that provides a default webpack config.
 It provides some functionalities by default:
 
-- babel (es2015+stage3)
-- hot module replacement
-- server side rendering  
+- babel (es2015+es2016+es2017+stage3)
+- TODO: hot module replacement
+- TODO: server side rendering 
 
 ## How to use
 
@@ -30,13 +30,26 @@ npm init
 install packages:
 
 ```
-npm install express react react-dom express-react-redux --save
+npm install express express-react-redux --save
 ```
 
 import a template app:
 
 ```
 $(npm bin)/express-react-redux import tiny-todos
+```
+
+run a dev server:
+
+```
+PORT=3000 npm start
+```
+
+build and run a production server:
+
+```
+npm run build
+PORT=3000 NODE_ENV=production npm start
 ```
 
 ## Similar Projects
