@@ -1,19 +1,35 @@
 # express-react-redux
 
 [![Build Status](https://travis-ci.org/dai-shi/express-react-redux.svg?branch=master)](https://travis-ci.org/dai-shi/express-react-redux)
+[![npm](https://img.shields.io/npm/v/express-react-redux.svg)](https://www.npmjs.com/package/express-react-redux)
 
 Express middleware for React/Redux applications
 
 ## Motivation
 
-TO BE WRITTEN
+For beginners, building a development environment for a React/Redux app
+is a time-consuming task, while they want to start to coding an app.
+To this end, there are various packages that support building React/Redux apps.
+However, I wasn't able to find one that fulfill my requirement:
+
+- It's provided as a library not as a tool.
+- It can be used not only for learning but for production.
+- It's not a blackbox, but can be used for learning how it works.
+- It's opinionated how to structure an app.
+- It should be customizable if you learn enough.
+
+Hence, I decided to create yet another pakcage for the same purpose.
+This package is express middleware with the assumption that server
+logic is implemented in express and express provides APIs to the client app.
+Let's call it an Express/React/Redux app.
 
 ## What is this
 
-This is simple express middleware that provides a default webpack config.
+This is simple express middleware that comes with
+a default opinionated webpack config.
 It provides some functionalities by default:
 
-- babel (es2015+es2016+es2017+stage3)
+- babel transformation (es2015+es2016+es2017+stage3)
 - TODO: hot module replacement
 - TODO: server side rendering 
 
