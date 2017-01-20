@@ -18,7 +18,7 @@ describe('cli import test', () => {
 
   it('invoke without commands', () => {
     const stdout = execSync(`${cli} --help`, { cwd: dir, encoding });
-    expect(stdout.indexOf('Usage') >= 0).toBe(true);
+    expect(stdout).toMatch(/Usage/);
   });
 
   it('invoke import tiny-todos', () => {
@@ -28,9 +28,9 @@ describe('cli import test', () => {
     const stdout = execSync(`${cli} import tiny-todos`, { cwd, encoding });
     expect(stdout.length).toBe(0);
     const pjson = fs.readFileSync(path.join(cwd, 'package.json'), { encoding });
-    expect(pjson.indexOf('express-react-redux build-client') >= 0).toBe(true);
+    expect(pjson).toMatch(/express-react-redux build-client/);
     const appjs = fs.readFileSync(path.join(cwd, 'src/server/app.js'), { encoding });
-    expect(appjs.indexOf('app.use(require(\'express-react-redux\')());') >= 0).toBe(true);
+    expect(appjs).toMatch(/app.use\(require\('express-react-redux'\)\(\)\);/);
   });
 });
 
