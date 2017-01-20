@@ -32,5 +32,18 @@ describe('cli import test', () => {
     const appjs = fs.readFileSync(path.join(cwd, 'src/server/app.js'), { encoding });
     expect(appjs).toMatch(/app.use\(require\('express-react-redux'\)\(\)\);/);
   });
+
+  it('invoke build command', () => {
+    const cwd = path.join(dir, 'app');
+    fs.mkdirSync(cwd);
+    execSync('npm init -y', { cwd });
+    execSync(`${cli} import tiny-todos`, { cwd, encoding });
+    const stdout = execSync(`${cli} build-client src/client build/client`, { cwd, encoding });
+    expect(stdout.length).toBe(0);
+    const files = fs.readdirSync(path.join(cwd, 'build/client'), { encoding });
+    expect(files.length).toBe(2);
+    expect(files.join(' ')).toMatch(/index\.js/);
+    expect(files.join(' ')).toMatch(/index\.html/);
+  });
 });
 
