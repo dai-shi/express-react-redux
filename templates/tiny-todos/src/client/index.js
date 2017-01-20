@@ -12,5 +12,4 @@ const store = createStore(reducer);
 
 render(
   React.createElement(Provider, { store }, React.createElement(App)),
-  document.getElementById('app')
-);
+  document.getElementById('app'));

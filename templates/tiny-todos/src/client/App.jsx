@@ -26,8 +26,8 @@ const App = ({ todos, addTodo }) => {
 App.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string,
-  })),
-  addTodo: PropTypes.func,
+  })).isRequired,
+  addTodo: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ todos }) => ({ todos });
