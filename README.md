@@ -10,12 +10,11 @@ Express middleware for React/Redux applications
 For beginners, building a development environment for a React/Redux app
 is a time-consuming task, while they want to start to coding an app.
 To this end, there are various packages that support building React/Redux apps.
-However, I wasn't able to find one that fulfill my requirement:
+However, I wasn't able to find one that fulfills my requirements:
 
-- It's provided as a library not as a tool.
+- It's provided as a library not as a tool nor a boilerplate.
 - It can be used not only for learning but for production.
 - It's not a blackbox, but can be used for learning how it works.
-- It's opinionated how to structure an app.
 - It should be customizable if you learn enough.
 
 Hence, I decided to create yet another pakcage for the same purpose.
