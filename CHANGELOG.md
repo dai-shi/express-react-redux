@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- Support for hot module replacement
 ### Changed
 - update webpack 2.2.0
 
