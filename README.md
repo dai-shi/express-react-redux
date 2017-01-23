@@ -29,7 +29,7 @@ a default opinionated webpack config.
 It provides some functionalities by default:
 
 - babel transformation (es2015+es2016+es2017+stage3)
-- TODO: hot module replacement
+- hot module replacement
 - TODO: server side rendering 
 
 ## How to use
