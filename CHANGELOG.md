@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [0.1.1] - 2017-01-24
 ### Added
 - Support for hot module replacement
 ### Changed
