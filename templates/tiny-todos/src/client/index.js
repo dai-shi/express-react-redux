@@ -25,7 +25,7 @@ if (module.hot) {
     const NewApp = require('./App').default;
     render(NewApp);
   });
-  module.hot.accept('./reducers', () => {
+  module.hot.accept('./reducer', () => {
     const newReducer = require('./reducer').default;
     store.replaceReducer(newReducer);
   });
