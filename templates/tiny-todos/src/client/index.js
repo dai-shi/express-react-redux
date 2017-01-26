@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import reducer from './reducer';
 
-const store = createStore(reducer);
+const store = createStore(reducer, window.__PRELOADED_STATE__);
 
 const render = (Component) => {
   ReactDOM.render(
