@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, browserHistory, Link } from 'react-router';
 
 const Home = ({ todos, addTodo }) => {
   const onSubmit = (event) => {
@@ -11,6 +11,8 @@ const Home = ({ todos, addTodo }) => {
   };
   return (
     <div>
+      <span>[Home]</span>
+      <span>[<Link to="/about">About</Link>]</span>
       <h1>TODOs</h1>
       <ul>
         {todos.map(({ text }) => <li>{text}</li>)}
@@ -40,6 +42,8 @@ const ConnectedHome = connect(mapStateToProps, mapDispatchToProps)(Home);
 
 const About = () => (
   <div>
+    <span>[<Link to="/">Home</Link>]</span>
+    <span>[About]</span>
     <h1>About</h1>
     <p>This is a tiny TODO app example</p>
   </div>
