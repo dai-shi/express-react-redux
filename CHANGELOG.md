@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- update npm packages
 
 ## [0.1.1] - 2017-01-24
 ### Added
