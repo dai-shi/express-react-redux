@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Router, Route, browserHistory } from 'react-router';
 
-const App = ({ todos, addTodo }) => {
+const Home = ({ todos, addTodo }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     const ele = event.target.getElementsByTagName('input')[0];
@@ -23,7 +24,7 @@ const App = ({ todos, addTodo }) => {
   );
 };
 
-App.propTypes = {
+Home.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string,
   })).isRequired,
@@ -35,5 +36,20 @@ const mapDispatchToProps = dispatch => ({
   addTodo: todo => dispatch({ type: 'ADD_TODO', todo }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+const ConnectedHome = connect(mapStateToProps, mapDispatchToProps)(Home);
 
+const About = () => (
+  <div>
+    <h1>About</h1>
+    <p>This is a tiny TODO app example</p>
+  </div>
+);
+
+const App = () => (
+  <Router history={browserHistory}>
+    <Route path="/" component={ConnectedHome} />
+    <Route path="/about" component={About} />
+  </Router>
+);
+
+export default App;
