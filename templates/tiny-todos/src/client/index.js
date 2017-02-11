@@ -1,20 +1,25 @@
 /* eslint-env browser */
 
-import React from 'react';
+import { createElement as h } from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 import reducer from './reducer';
+
+export { App, reducer };
 
 const store = createStore(reducer, window.__PRELOADED_STATE__);
 
 const render = (Component) => {
   ReactDOM.render(
-    React.createElement(AppContainer, {},
-      React.createElement(Provider, { store }, React.createElement(Component))),
+    h(AppContainer, {},
+      h(Provider, { store },
+        h(BrowserRouter, {},
+          h(Component)))),
     document.getElementById('app'));
 };
 
