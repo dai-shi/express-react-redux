@@ -29,7 +29,7 @@ describe('cli import test', () => {
     expect(stdout.length).toBe(0);
     const pjson = fs.readFileSync(path.join(cwd, 'package.json'), { encoding });
     expect(pjson).toMatch(/express-react-redux build-client/);
-    const appjs = fs.readFileSync(path.join(cwd, 'src/server/app.js'), { encoding });
+    const appjs = fs.readFileSync(path.join(cwd, 'src/server/index.js'), { encoding });
     expect(appjs).toMatch(/app.use\(require\('express-react-redux'\)\(\)\);/);
   });
 
