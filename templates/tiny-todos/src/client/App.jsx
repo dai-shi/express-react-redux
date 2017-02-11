@@ -51,8 +51,10 @@ const About = () => (
 
 const App = () => (
   <BrowserRouter>
-    <Route exact path="/" component={ConnectedHome} />
-    <Route exact path="/about" component={About} />
+    <div>
+      <Route exact path="/" component={ConnectedHome} />
+      <Route exact path="/about" component={About} />
+    </div>
   </BrowserRouter>
 );
 
