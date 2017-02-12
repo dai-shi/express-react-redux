@@ -3,6 +3,7 @@
 ## [Unreleased]
 ### Added
 - add react-router
+- server-side rendering
 
 ### Changed
 - update npm packages

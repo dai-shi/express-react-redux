@@ -30,7 +30,7 @@ It provides some functionalities by default:
 
 - babel transformation (es2015+es2016+es2017+stage3)
 - hot module replacement
-- TODO: server side rendering 
+- server side rendering
 
 ## How to use
 
