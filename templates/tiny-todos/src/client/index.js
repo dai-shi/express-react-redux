@@ -10,8 +10,6 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reducer from './reducer';
 
-export { App, reducer };
-
 const store = createStore(reducer, window.__PRELOADED_STATE__);
 
 const render = (Component) => {
