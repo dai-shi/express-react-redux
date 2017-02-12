@@ -41,9 +41,11 @@ describe('cli import test', () => {
     const stdout = execSync(`${cli} build-client src/client build/client`, { cwd, encoding });
     expect(stdout.length).toBe(0);
     const files = fs.readdirSync(path.join(cwd, 'build/client'), { encoding });
-    expect(files.length).toBe(2);
+    expect(files.length).toBe(4);
     expect(files.join(' ')).toMatch(/index\.js/);
     expect(files.join(' ')).toMatch(/index\.html/);
+    expect(files.join(' ')).toMatch(/App\.js/);
+    expect(files.join(' ')).toMatch(/reducer\.js/);
   });
 });
 
