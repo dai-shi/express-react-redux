@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 const Home = ({ todos, addTodo }) => {
   const onSubmit = (event) => {
@@ -50,12 +50,10 @@ const About = () => (
 );
 
 const App = () => (
-  <BrowserRouter>
-    <div>
-      <Route exact path="/" component={ConnectedHome} />
-      <Route exact path="/about" component={About} />
-    </div>
-  </BrowserRouter>
+  <div>
+    <Route exact path="/" component={ConnectedHome} />
+    <Route exact path="/about" component={About} />
+  </div>
 );
 
 export default App;

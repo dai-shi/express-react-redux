@@ -1,7 +1,6 @@
 /* eslint-env jest */
 /* global jasmine */
 
-const path = require('path');
 const http = require('http');
 const express = require('express');
 const request = require('request');
@@ -13,8 +12,6 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 60 * 1000;
 describe('middleware unit test', () => {
   it('call it with minimal option', (done) => {
     main({
-      dirSourceClient: path.join(__dirname, 'files/src/client'),
-      dirBuildClient: path.join(__dirname, 'files/build/client'),
       webpackDevBuildCallback: done,
     });
   });
@@ -28,8 +25,6 @@ describe('middleware run test', () => {
   beforeAll((done) => {
     const app = express();
     app.use(main({
-      dirSourceClient: path.join(__dirname, 'files/src/client'),
-      dirBuildClient: path.join(__dirname, 'files/build/client'),
       webpackDevBuildCallback: done,
     }));
     server = http.createServer(app);
