@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [0.2.0] - 2017-02-13
 ### Added
 - add react-router
 - server-side rendering

@@ -1,7 +1,7 @@
 {
   "name": "express-react-redux",
   "description": "Express middleware for React/Redux applications",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "repository": "dai-shi/express-react-redux",
   "main": "./lib/main.js",
   "bin": "./lib/cli.js",
