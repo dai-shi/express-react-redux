@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- server-side rendering HMR support
 
 ## [0.2.0] - 2017-02-13
 ### Added
