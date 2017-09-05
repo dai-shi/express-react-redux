@@ -59,3 +59,33 @@ describe('middleware run test', () => {
     server.close(done);
   });
 });
+
+describe('middleware run test with / route SSR', () => {
+  'use strict';
+
+  let server;
+  let port;
+  beforeAll((done) => {
+    const app = express();
+    app.use(main({
+      webpackDevConfig,
+      webpackDevBuildCallback: done,
+      indexSSR: true,
+    }));
+    server = http.createServer(app);
+    server.listen(() => {
+      port = server.address().port;
+    });
+  });
+
+  it('get /', (done) => {
+    request.get(`http://localhost:${port}/`, (err, res, body) => {
+      expect(body).toContain('<h1');
+      done();
+    });
+  });
+
+  afterAll((done) => {
+    server.close(done);
+  });
+});
