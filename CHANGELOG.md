@@ -4,6 +4,9 @@
 ### Added
 - option for server-side rendering for `/` (#7)
 
+### Changed
+- update npm packages
+
 ## [0.2.1] - 2017-02-14
 ### Changed
 - server-side rendering HMR support

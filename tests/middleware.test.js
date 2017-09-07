@@ -25,7 +25,7 @@ describe('middleware unit test', () => {
   it('call it with minimal option', (done) => {
     main({
       webpackDevConfig,
-      webpackDevBuildCallback: done,
+      webpackDevBuildCallback: () => done(),
     });
   });
 });
@@ -39,7 +39,7 @@ describe('middleware run test', () => {
     const app = express();
     app.use(main({
       webpackDevConfig,
-      webpackDevBuildCallback: done,
+      webpackDevBuildCallback: () => done(),
     }));
     server = http.createServer(app);
     server.listen(() => {
@@ -69,7 +69,7 @@ describe('middleware run test with / route SSR', () => {
     const app = express();
     app.use(main({
       webpackDevConfig,
-      webpackDevBuildCallback: done,
+      webpackDevBuildCallback: () => done(),
       indexSSR: true,
     }));
     server = http.createServer(app);
