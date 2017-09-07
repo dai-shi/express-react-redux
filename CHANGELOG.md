@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [0.3.0] - 2017-09-07
 ### Added
 - option for server-side rendering for `/` (#7)
 
