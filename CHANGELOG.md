@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- fix babel-preset-env option
 
 ## [0.3.0] - 2017-09-07
 ### Added

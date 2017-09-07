@@ -28,7 +28,7 @@ This is simple express middleware that comes with
 a default opinionated webpack config.
 It provides some functionalities by default:
 
-- babel transformation (es2015+es2016+es2017+stage3)
+- babel transformation (latest+stage3)
 - hot module replacement
 - server side rendering
 
