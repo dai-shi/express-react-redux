@@ -6,6 +6,7 @@
 
 ### Changed
 - update npm packages
+- use babel-preset-env
 
 ## [0.2.1] - 2017-02-14
 ### Changed
