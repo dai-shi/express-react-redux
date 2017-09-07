@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- option for server-side rendering for `/` (#7)
 
 ## [0.2.1] - 2017-02-14
 ### Changed
