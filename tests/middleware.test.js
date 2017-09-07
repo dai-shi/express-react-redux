@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const main = require('../lib/main.js');
 
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 60 * 1000;
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 2 * 60 * 1000;
 
 const webpackDevConfig = require('../lib/webpack-dev-config.js');
 
