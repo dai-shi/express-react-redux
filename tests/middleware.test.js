@@ -101,11 +101,11 @@ describe('middleware run test with async function to populate the Store before S
       webpackDevConfig,
       webpackDevBuildCallback: () => done(),
       indexSSR: true,
-      beforeRenderPromise: (() => new Promise((resolve) => {
+      beforeRenderPromise: () => new Promise((resolve) => {
         setTimeout(() => {
           resolve({ type: 'ADD_TODO', todo: 'Wait async state before render 👏 ' });
         }, 2000);
-      }))(),
+      }),
     }));
     server = http.createServer(app);
     server.listen(() => {
