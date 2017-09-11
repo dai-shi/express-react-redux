@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const main = require('../lib/main.js');
 
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 2 * 60 * 1000;
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 3 * 60 * 1000;
 
 const webpackDevConfig = require('../lib/webpack-dev-config.js');
 
@@ -81,6 +81,41 @@ describe('middleware run test with / route SSR', () => {
   it('get /', (done) => {
     request.get(`http://localhost:${port}/`, (err, res, body) => {
       expect(body).toContain('<h1');
+      done();
+    });
+  });
+
+  afterAll((done) => {
+    server.close(done);
+  });
+});
+
+describe('middleware run test with async function to populate the Store before SSR', () => {
+  'use strict';
+
+  let server;
+  let port;
+  beforeAll((done) => {
+    const app = express();
+    app.use(main({
+      webpackDevConfig,
+      webpackDevBuildCallback: () => done(),
+      indexSSR: true,
+      beforeRenderPromise: (() => new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({ type: 'ADD_TODO', todo: 'Wait async state before render 👏 ' });
+        }, 2000);
+      }))(),
+    }));
+    server = http.createServer(app);
+    server.listen(() => {
+      port = server.address().port;
+    });
+  });
+
+  it('get /', (done) => {
+    request.get(`http://localhost:${port}/`, (err, res, body) => {
+      expect(body).toContain('Wait async state before render 👏');
       done();
     });
   });
