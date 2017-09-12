@@ -90,7 +90,7 @@ describe('middleware run test with / route SSR', () => {
   });
 });
 
-describe('middleware run test with async function to populate the Store before SSR', () => {
+describe('middleware run test with async functions to populate the Store before SSR', () => {
   'use strict';
 
   let server;
@@ -102,9 +102,20 @@ describe('middleware run test with async function to populate the Store before S
       webpackDevBuildCallback: () => done(),
       indexSSR: true,
       beforeRenderPromise: req => new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({ type: 'ADD_TODO', todo: `Path ${req.url} waits async state before render 👏 ` });
-        }, 2000);
+        const p1 = new Promise((r) => {
+          setTimeout(() => {
+            r("I'm Promise 1");
+          }, 1000);
+        });
+        const p2 = new Promise((r) => {
+          setTimeout(() => {
+            r("I'm Promise 2");
+          }, 2000);
+        });
+        Promise.all([p1, p2])
+          .then((pr) => {
+            resolve({ type: 'ADD_TODO', todo: `Current path: ${req.url}, Promise 1 value: ${pr[0]}, Promise 2 value: ${pr[1]}` });
+          });
       }),
     }));
     server = http.createServer(app);
@@ -115,7 +126,7 @@ describe('middleware run test with async function to populate the Store before S
 
   it('get /', (done) => {
     request.get(`http://localhost:${port}/about`, (err, res, body) => {
-      expect(body).toContain('Path \\u002Fabout waits async state before render 👏');
+      expect(body).toContain("Current path: \\u002Fabout, Promise 1 value: I'm Promise 1, Promise 2 value: I'm Promise 2");
       done();
     });
   });
