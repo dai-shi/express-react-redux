@@ -101,9 +101,9 @@ describe('middleware run test with async function to populate the Store before S
       webpackDevConfig,
       webpackDevBuildCallback: () => done(),
       indexSSR: true,
-      beforeRenderPromise: () => new Promise((resolve) => {
+      beforeRenderPromise: req => new Promise((resolve) => {
         setTimeout(() => {
-          resolve({ type: 'ADD_TODO', todo: 'Wait async state before render 👏 ' });
+          resolve({ type: 'ADD_TODO', todo: `Path ${req.url} waits async state before render 👏 ` });
         }, 2000);
       }),
     }));
@@ -114,8 +114,8 @@ describe('middleware run test with async function to populate the Store before S
   });
 
   it('get /', (done) => {
-    request.get(`http://localhost:${port}/`, (err, res, body) => {
-      expect(body).toContain('Wait async state before render 👏');
+    request.get(`http://localhost:${port}/about`, (err, res, body) => {
+      expect(body).toContain('Path \\u002Fabout waits async state before render 👏');
       done();
     });
   });
