@@ -101,7 +101,7 @@ describe('middleware run test with async functions to populate the Store before 
       webpackDevConfig,
       webpackDevBuildCallback: () => done(),
       indexSSR: true,
-      beforeRenderPromise: req => new Promise((resolve) => {
+      beforeRender: (store, req) => new Promise((resolve) => {
         const p1 = new Promise((r) => {
           setTimeout(() => {
             r("I'm Promise 1");
@@ -114,7 +114,8 @@ describe('middleware run test with async functions to populate the Store before 
         });
         Promise.all([p1, p2])
           .then((pr) => {
-            resolve({ type: 'ADD_TODO', todo: `Current path: ${req.url}, Promise 1 value: ${pr[0]}, Promise 2 value: ${pr[1]}` });
+            store.dispatch({ type: 'ADD_TODO', todo: `Current path: ${req.url}, Promise 1 value: ${pr[0]}, Promise 2 value: ${pr[1]}` });
+            resolve();
           });
       }),
     }));
