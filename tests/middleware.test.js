@@ -101,22 +101,11 @@ describe('middleware run test with async functions to populate the Store before 
       webpackDevConfig,
       webpackDevBuildCallback: () => done(),
       indexSSR: true,
-      beforeRender: (store, req) => new Promise((resolve) => {
-        const p1 = new Promise((r) => {
-          setTimeout(() => {
-            r("I'm Promise 1");
-          }, 1000);
-        });
-        const p2 = new Promise((r) => {
-          setTimeout(() => {
-            r("I'm Promise 2");
-          }, 2000);
-        });
-        Promise.all([p1, p2])
-          .then((pr) => {
-            store.dispatch({ type: 'ADD_TODO', todo: `Current path: ${req.url}, Promise 1 value: ${pr[0]}, Promise 2 value: ${pr[1]}` });
-            resolve();
-          });
+      beforeSSR: (store, req) => new Promise((resolve) => {
+        setTimeout(() => {
+          store.dispatch({ type: 'ADD_TODO', todo: `Current path: ${req.url}, Async function resolved 👏` });
+          resolve();
+        }, 1000);
       }),
     }));
     server = http.createServer(app);
@@ -127,7 +116,7 @@ describe('middleware run test with async functions to populate the Store before 
 
   it('get /', (done) => {
     request.get(`http://localhost:${port}/about`, (err, res, body) => {
-      expect(body).toContain("Current path: \\u002Fabout, Promise 1 value: I'm Promise 1, Promise 2 value: I'm Promise 2");
+      expect(body).toContain('Current path: \\u002Fabout, Async function resolved 👏');
       done();
     });
   });
