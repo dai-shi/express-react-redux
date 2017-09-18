@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.4.0] - 2017-09-18
+### Added
+- option for pre server-side rendering hook (#8)
+
 ## [0.3.1] - 2017-09-07
 ### Changed
 - fix babel-preset-env option
