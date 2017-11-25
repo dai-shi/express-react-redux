@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.4.1] - 2017-11-24
+### Added
+- option to exclude `node_modules` in webpack config
+- include package-lock.json
+
 ## [0.4.0] - 2017-09-18
 ### Added
 - option for pre server-side rendering hook (#8)
