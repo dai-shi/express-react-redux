@@ -2,7 +2,7 @@
 
 const path = require('path');
 const fs = require('fs-extra');
-const execSync = require('child_process').execSync;
+const { execSync } = require('child_process');
 
 const cli = path.join(__dirname, '../lib/cli.js');
 

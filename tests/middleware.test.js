@@ -43,7 +43,7 @@ describe('middleware run test', () => {
     }));
     server = http.createServer(app);
     server.listen(() => {
-      port = server.address().port;
+      ({ port } = server.address());
     });
   });
 
@@ -74,7 +74,7 @@ describe('middleware run test with / route SSR', () => {
     }));
     server = http.createServer(app);
     server.listen(() => {
-      port = server.address().port;
+      ({ port } = server.address());
     });
   });
 
@@ -110,7 +110,7 @@ describe('middleware run test with async functions to populate the Store before 
     }));
     server = http.createServer(app);
     server.listen(() => {
-      port = server.address().port;
+      ({ port } = server.address());
     });
   });
 

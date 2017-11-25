@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.5.0] - 2017-11-24
+### Changed
+- update npm packages
+
 ## [0.4.1] - 2017-11-24
 ### Added
 - option to exclude `node_modules` in webpack config

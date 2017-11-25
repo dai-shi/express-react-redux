@@ -14,11 +14,18 @@ const store = createStore(reducer, window.__PRELOADED_STATE__);
 
 const render = (Component) => {
   ReactDOM.render(
-    h(AppContainer, {},
-      h(Provider, { store },
-        h(BrowserRouter, {},
-          h(Component)))),
-    document.getElementById('app'));
+    h(
+      AppContainer, {},
+      h(
+        Provider, { store },
+        h(
+          BrowserRouter, {},
+          h(Component),
+        ),
+      ),
+    ),
+    document.getElementById('app'),
+  );
 };
 
 render(App);
