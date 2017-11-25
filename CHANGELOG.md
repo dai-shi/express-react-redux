@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.5.2] - 2017-11-24
+### Changed
+- fix exclude option in webpack config, again
+
 ## [0.5.1] - 2017-11-24
 ### Changed
 - fix exclude option in webpack config
