@@ -5,6 +5,7 @@
 ## [0.5.0] - 2017-11-24
 ### Changed
 - update npm packages
+- use babel 7
 
 ## [0.4.1] - 2017-11-24
 ### Added

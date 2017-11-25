@@ -31,8 +31,6 @@ describe('middleware unit test', () => {
 });
 
 describe('middleware run test', () => {
-  'use strict';
-
   let server;
   let port;
   beforeAll((done) => {
@@ -61,8 +59,6 @@ describe('middleware run test', () => {
 });
 
 describe('middleware run test with / route SSR', () => {
-  'use strict';
-
   let server;
   let port;
   beforeAll((done) => {
@@ -91,8 +87,6 @@ describe('middleware run test with / route SSR', () => {
 });
 
 describe('middleware run test with async functions to populate the Store before SSR', () => {
-  'use strict';
-
   let server;
   let port;
   beforeAll((done) => {

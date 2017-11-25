@@ -11,11 +11,12 @@
     "lint": "eslint . --ext .js,.jsx"
   },
   "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-3": "^6.24.1",
+    "@babel/core": "^7.0.0-beta.32",
+    "@babel/preset-env": "^7.0.0-beta.32",
+    "@babel/preset-react": "^7.0.0-beta.32",
+    "@babel/preset-stage-3": "^7.0.0-beta.32",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.0.0-beta.0",
     "commander": "^2.12.1",
     "copyfiles": "^1.2.0",
     "css-loader": "^0.28.7",
@@ -50,7 +51,7 @@
     "request": "^2.83.0"
   },
   "engines": {
-    "node": ">=6.9.1"
+    "node": ">=8.2.1"
   },
   "eslintConfig": {
     "extends": "airbnb",
@@ -82,8 +83,12 @@
       "jsx-a11y/anchor-is-valid": [
         2,
         {
-          "components": [ "Link" ],
-          "specialLink": [ "to" ]
+          "components": [
+            "Link"
+          ],
+          "specialLink": [
+            "to"
+          ]
         }
       ]
     }
